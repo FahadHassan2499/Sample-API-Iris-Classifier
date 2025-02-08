@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import pickle
 from sklearn.tree import DecisionTreeClassifier
 import numpy as np
@@ -18,7 +18,9 @@ def create():
 create()
         
 # val = create()
-    
+@app.route("/",methods=["GET"])
+def index():
+    return render_template("index.html")
 
 @app.route("/get_status", methods=["GET"])
 def get():
